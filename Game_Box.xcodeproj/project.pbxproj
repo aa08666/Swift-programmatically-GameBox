@@ -13,6 +13,7 @@
 		90A15C2A222E460400C4B5FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90A15C28222E460400C4B5FA /* LaunchScreen.storyboard */; };
 		90A15C32222E54A200C4B5FA /* Extension_Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A15C31222E54A200C4B5FA /* Extension_Code.swift */; };
 		90A15C34222E6A6400C4B5FA /* info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A15C33222E6A6400C4B5FA /* info.swift */; };
+		90A15C38222F7A6B00C4B5FA /* FirstGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A15C37222F7A6B00C4B5FA /* FirstGameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		90A15C2B222E460400C4B5FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90A15C31222E54A200C4B5FA /* Extension_Code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_Code.swift; sourceTree = "<group>"; };
 		90A15C33222E6A6400C4B5FA /* info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = info.swift; sourceTree = "<group>"; };
+		90A15C37222F7A6B00C4B5FA /* FirstGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstGameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				90A15C1F222E460200C4B5FA /* AppDelegate.swift */,
 				90A15C21222E460200C4B5FA /* ViewController.swift */,
+				90A15C37222F7A6B00C4B5FA /* FirstGameViewController.swift */,
 				90A15C31222E54A200C4B5FA /* Extension_Code.swift */,
 				90A15C26222E460400C4B5FA /* Assets.xcassets */,
 				90A15C28222E460400C4B5FA /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90A15C32222E54A200C4B5FA /* Extension_Code.swift in Sources */,
+				90A15C38222F7A6B00C4B5FA /* FirstGameViewController.swift in Sources */,
 				90A15C34222E6A6400C4B5FA /* info.swift in Sources */,
 				90A15C22222E460200C4B5FA /* ViewController.swift in Sources */,
 				90A15C20222E460200C4B5FA /* AppDelegate.swift in Sources */,
