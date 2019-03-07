@@ -28,7 +28,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var myTableView: UITableView = {
         let tableView =  UITableView()
         tableView.separatorStyle = .none
-//        tableView.allowsSelection = false
         return tableView
     }()
     
@@ -99,6 +98,8 @@ class customCell: UITableViewCell {
     
     weak var delegate: GamePushNextPage?
     
+    var indexPath: IndexPath?
+    
     // 我的cellView
     let cellView: UIView = {
         let view = UIView()
@@ -155,16 +156,18 @@ class customCell: UITableViewCell {
         cellView.addSubview(pictureImageView)
         cellView.addSubview(titleLabel)
         cellView.addSubview(FirstGameEntryButton)
-        
         cellView.setAnchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 4, paddingLeft: 8, paddingBottom: 4, paddingRight: 8)
+        
         pictureImageView.setAnchor(top: nil, left: cellView.leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 40, height: 40)
         pictureImageView.centerYAnchor.constraint(equalTo: cellView.centerYAnchor).isActive = true
         
+        
         titleLabel.setAnchor(top: nil, left: pictureImageView.rightAnchor, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 20, paddingBottom: 0, paddingRight: 20, height: 40)
         titleLabel.centerYAnchor.constraint(equalTo: pictureImageView.centerYAnchor).isActive = true
+        
         FirstGameEntryButton.setAnchor(top: nil, left: titleLabel.rightAnchor, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 50, paddingBottom: 0, paddingRight: 20, width: 45, height: 45)
-        FirstGameEntryButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
         FirstGameEntryButton.addTarget(self, action: #selector(pushToFirstGame), for: .touchUpInside)
+        FirstGameEntryButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
     }
 }
 

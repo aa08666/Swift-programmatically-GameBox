@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		906B503A2231113C005B4AD8 /* SecondGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906B50392231113C005B4AD8 /* SecondGameViewController.swift */; };
 		90A15C20222E460200C4B5FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A15C1F222E460200C4B5FA /* AppDelegate.swift */; };
 		90A15C22222E460200C4B5FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A15C21222E460200C4B5FA /* ViewController.swift */; };
 		90A15C27222E460400C4B5FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90A15C26222E460400C4B5FA /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		906B50392231113C005B4AD8 /* SecondGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondGameViewController.swift; sourceTree = "<group>"; };
 		90A15C1C222E460200C4B5FA /* Game_Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game_Box.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A15C1F222E460200C4B5FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90A15C21222E460200C4B5FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				90A15C1F222E460200C4B5FA /* AppDelegate.swift */,
 				90A15C21222E460200C4B5FA /* ViewController.swift */,
 				90A15C37222F7A6B00C4B5FA /* FirstGameViewController.swift */,
+				906B50392231113C005B4AD8 /* SecondGameViewController.swift */,
 				90A15C31222E54A200C4B5FA /* Extension_Code.swift */,
 				90A15C26222E460400C4B5FA /* Assets.xcassets */,
 				90A15C28222E460400C4B5FA /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 				90A15C38222F7A6B00C4B5FA /* FirstGameViewController.swift in Sources */,
 				90A15C34222E6A6400C4B5FA /* info.swift in Sources */,
 				90A15C22222E460200C4B5FA /* ViewController.swift in Sources */,
+				906B503A2231113C005B4AD8 /* SecondGameViewController.swift in Sources */,
 				90A15C20222E460200C4B5FA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
