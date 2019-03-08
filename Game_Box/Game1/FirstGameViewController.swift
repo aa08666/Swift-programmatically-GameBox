@@ -15,8 +15,6 @@ class FirstGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // TODO： call setup func
-        
         
         firstGameView = UIView()
         self.view.addSubview(firstGameView)
@@ -61,11 +59,10 @@ class FirstGameViewController: UIViewController {
         button.setTitleColor(.red, for: .highlighted)
         button.layer.cornerRadius = 20
         button.clipsToBounds = true
-//        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    // TODO：FUNC(setup) 設定約束條件
+    
     // TODO: 拉霸邏輯判斷
     @objc func showLabaAnswer() {
         let answer = GKRandomSource.sharedRandom().nextInt(upperBound: 9) + 1
@@ -76,6 +73,7 @@ class FirstGameViewController: UIViewController {
         threeLabel.text = String(answer3)
     }
     
+    // TODO：FUNC(setup) 設定約束條件
     func setupAutoLayout() {
         firstGameView.addSubview(oneLabel)
         firstGameView.addSubview(twoLabel)
@@ -101,11 +99,6 @@ class FirstGameViewController: UIViewController {
         labaButton.addTarget(self, action: #selector(showLabaAnswer), for: .touchUpInside)
         
     }
-    
-    
-    
-    
-    
     
     
     

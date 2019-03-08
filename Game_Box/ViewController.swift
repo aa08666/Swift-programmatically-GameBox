@@ -11,7 +11,7 @@ import UIKit
 
 
 protocol GamePushNextPage: class {
-    func homepageToGame()
+    func homepageToGame(indexPath: IndexPath)
     
 }
 
@@ -68,6 +68,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.pictureImageView.image = UIImage(named: myGamePictureArray[indexPath.item].image!)
         cell.titleLabel.text = myGamePictureArray[indexPath.item].title
         cell.delegate = self
+        cell.indexPath = indexPath
         return cell
     }
     
@@ -84,14 +85,40 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
 }
-
-extension ViewController:GamePushNextPage {
-    func homepageToGame() {
-        let vc = FirstGameViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
+protocol Gameable {
     
 }
+extension FirstGameViewController: Gameable {
+    
+}
+extension SecondGameViewController: Gameable {
+    
+}
+
+extension ViewController:GamePushNextPage {
+    
+    func homepageToGame(indexPath: IndexPath) {
+        var game:Gameable?
+        switch indexPath.row {
+        case 0:
+            game = FirstGameViewController()
+        case 1:
+            game = SecondGameViewController()
+        default:
+            break
+        }
+
+     guard  let gameVC = game,
+            let vc = gameVC as? UIViewController else { return  }
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        
+    }
+  }
+    
+   
+    
+
 
 
 class customCell: UITableViewCell {
@@ -134,9 +161,9 @@ class customCell: UITableViewCell {
         
     }()
     
-    @objc func pushToFirstGame() {
+    @objc func pushToGame() {
         
-        delegate?.homepageToGame()
+        delegate?.homepageToGame(indexPath: indexPath!)
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -166,7 +193,7 @@ class customCell: UITableViewCell {
         titleLabel.centerYAnchor.constraint(equalTo: pictureImageView.centerYAnchor).isActive = true
         
         FirstGameEntryButton.setAnchor(top: nil, left: titleLabel.rightAnchor, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 50, paddingBottom: 0, paddingRight: 20, width: 45, height: 45)
-        FirstGameEntryButton.addTarget(self, action: #selector(pushToFirstGame), for: .touchUpInside)
+        FirstGameEntryButton.addTarget(self, action: #selector(pushToGame), for: .touchUpInside)
         FirstGameEntryButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
     }
 }
