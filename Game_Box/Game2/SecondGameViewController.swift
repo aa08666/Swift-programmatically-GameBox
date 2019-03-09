@@ -5,20 +5,21 @@
 //  Created by 柏呈 on 2019/3/7.
 //  Copyright © 2019 柏呈. All rights reserved.
 //
+// NOTE： 之後可以參考的做法，用extension 讓生成 button 時可以少寫很多 code
+//extension UIButton {
+//    static func makeGameButton(input:String)-> UIButton {
+//        let button11 = UIButton()
+//        button11.tintColor = .black
+//        button11.setTitle("誰是周董？", for: .normal)
+//        button11.setTitleColor(.black, for: .normal)
+//        return button11
+//
+//    }
+//     let newButton: UIButton = .makeGameButton(input: <#T##String#>)
+//}
 
 import UIKit
 
-extension UIButton {
-    static func makeGameButton(input:String)-> UIButton {
-        let button11 = UIButton()
-        button11.tintColor = .black
-        button11.setTitle("誰是周董？", for: .normal)
-        button11.setTitleColor(.black, for: .normal)
-        return button11
-        
-    }
-//     let newButton: UIButton = .makeGameButton(input: <#T##String#>)
-}
 
 class SecondGameViewController: UIViewController {
     var secondGameView: UIView!
@@ -110,21 +111,18 @@ class SecondGameViewController: UIViewController {
         
         imageViewOne.setAnchor(top: secondGameView.topAnchor, left: secondGameView.leftAnchor, bottom: nil, right: nil, paddingTop: 100, paddingLeft: 100, paddingBottom: 0, paddingRight: 0, width: 100, height: 75 )
         imageViewOne.translatesAutoresizingMaskIntoConstraints = false
-//        imageViewOne.centerYAnchor.constraint(equalTo: secondGameView.centerYAnchor).isActive = true
+
         
-//
+
         imageViewTwo.setAnchor(top: imageViewOne.bottomAnchor, left: secondGameView.leftAnchor, bottom: nil, right: nil, paddingTop: 100, paddingLeft: 100, paddingBottom: 0, paddingRight: 0, width: 100, height: 100)
         imageViewTwo.translatesAutoresizingMaskIntoConstraints = false
-//       imageViewTwo.centerYAnchor.constraint(equalTo: imageViewOne.centerYAnchor).isActive = true
-//
+
         imagViewThree.setAnchor(top: imageViewTwo.bottomAnchor, left: secondGameView.leftAnchor, bottom: nil, right: nil, paddingTop: 80, paddingLeft: 100, paddingBottom: 0, paddingRight: 0, width: 100, height: 80)
         imagViewThree.translatesAutoresizingMaskIntoConstraints = false
-//        imagViewThree.centerYAnchor.constraint(equalTo: imageViewTwo.centerYAnchor).isActive = true
-//
+
         imageViewFour.setAnchor(top: imagViewThree.bottomAnchor, left: secondGameView.leftAnchor, bottom: nil, right: nil, paddingTop: 80, paddingLeft: 100, paddingBottom: 0, paddingRight: 0, width: 100, height: 80)
         imageViewFour.translatesAutoresizingMaskIntoConstraints = false
-//        imageViewFour.centerYAnchor.constraint(equalTo: imagViewThree.centerYAnchor).isActive = true
-//
+
                 buttonOne.setAnchor(top: secondGameView.topAnchor, left: imageViewOne.rightAnchor, bottom: nil, right: nil, paddingTop: 100, paddingLeft: 50, paddingBottom: 0, paddingRight: 0, width: 100, height: 100)
                 buttonOne.translatesAutoresizingMaskIntoConstraints = false
         

@@ -18,9 +18,9 @@ protocol GamePushNextPage: class {
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    let myGamePictureArray = [Info(image: "icons8-ghost", title: "FirstGame"),
-                              Info(image: "icons8-lyre", title: "SecondGame"),
-                              Info(image: "icons8-robot_2", title: "ThirdGame")
+    let myGamePictureArray = [Info(image: "icons8-ghost", title: "我是拉霸"),
+                              Info(image: "icons8-lyre", title: "你猜猜啊"),
+                              Info(image: "icons8-robot_2", title: "終極密碼")
     ]
     
     let cellID = "CellID"
@@ -95,6 +95,10 @@ extension SecondGameViewController: Gameable {
     
 }
 
+extension ThirdGameViewController: Gameable {
+    
+}
+
 extension ViewController:GamePushNextPage {
     
     func homepageToGame(indexPath: IndexPath) {
@@ -104,6 +108,8 @@ extension ViewController:GamePushNextPage {
             game = FirstGameViewController()
         case 1:
             game = SecondGameViewController()
+        case 2:
+            game = ThirdGameViewController()
         default:
             break
         }
