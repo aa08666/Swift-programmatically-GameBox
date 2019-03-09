@@ -62,6 +62,14 @@
 			path = Game2;
 			sourceTree = "<group>";
 		};
+		9049E59F22328CB800E56EB2 /* Game3 */ = {
+			isa = PBXGroup;
+			children = (
+				9049E59522327B8300E56EB2 /* ThirdGameViewController.swift */,
+			);
+			path = Game3;
+			sourceTree = "<group>";
+		};
 		90A15C13222E460200C4B5FA = {
 			isa = PBXGroup;
 			children = (
@@ -83,7 +91,6 @@
 			children = (
 				90A15C1F222E460200C4B5FA /* AppDelegate.swift */,
 				90A15C21222E460200C4B5FA /* ViewController.swift */,
-				9049E59522327B8300E56EB2 /* ThirdGameViewController.swift */,
 				90A15C31222E54A200C4B5FA /* Extension_Code.swift */,
 				90A15C26222E460400C4B5FA /* Assets.xcassets */,
 				90A15C28222E460400C4B5FA /* LaunchScreen.storyboard */,
@@ -91,6 +98,7 @@
 				90A15C33222E6A6400C4B5FA /* info.swift */,
 				9049E59B22327E0D00E56EB2 /* Game1 */,
 				9049E59C22327E1800E56EB2 /* Game2 */,
+				9049E59F22328CB800E56EB2 /* Game3 */,
 			);
 			path = Game_Box;
 			sourceTree = "<group>";

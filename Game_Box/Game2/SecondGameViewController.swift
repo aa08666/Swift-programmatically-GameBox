@@ -8,6 +8,18 @@
 
 import UIKit
 
+extension UIButton {
+    static func makeGameButton(input:String)-> UIButton {
+        let button11 = UIButton()
+        button11.tintColor = .black
+        button11.setTitle("誰是周董？", for: .normal)
+        button11.setTitleColor(.black, for: .normal)
+        return button11
+        
+    }
+//     let newButton: UIButton = .makeGameButton(input: <#T##String#>)
+}
+
 class SecondGameViewController: UIViewController {
     var secondGameView: UIView!
 
@@ -54,6 +66,7 @@ class SecondGameViewController: UIViewController {
         btnOne.setTitleColor(.black, for: .normal)
         return btnOne
     }()
+   
     
     let buttonTwo: UIButton = {
         let btnTwo = UIButton()

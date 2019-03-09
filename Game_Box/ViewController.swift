@@ -177,7 +177,7 @@ class customCell: UITableViewCell {
     
     // 設定約束條件
     func setup() {
-        contentView.isUserInteractionEnabled = false
+
         backgroundColor = UIColor(r: 245, g: 245, b: 245)
         addSubview(cellView)
         cellView.addSubview(pictureImageView)
