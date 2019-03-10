@@ -18,6 +18,7 @@ protocol GamePushNextPage: class {
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
+    /// <#Description#>
     let myGamePictureArray = [Info(image: "icons8-ghost", title: "我是拉霸"),
                               Info(image: "icons8-lyre", title: "你猜猜啊"),
                               Info(image: "icons8-robot_2", title: "終極密碼")
@@ -59,6 +60,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         myTableView.setAnchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
     }
     
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myGamePictureArray.count
     }
@@ -69,6 +71,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.titleLabel.text = myGamePictureArray[indexPath.item].title
         cell.delegate = self
         cell.indexPath = indexPath
+        
         return cell
     }
     
@@ -85,6 +88,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
 }
+/// commit optional / 高亮it
 protocol Gameable {
     
 }
@@ -123,7 +127,9 @@ extension ViewController:GamePushNextPage {
   }
     
    
-    
+//FIXME: asd
+//TODO: 123123
+//MARK: 132
 
 
 

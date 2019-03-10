@@ -47,7 +47,8 @@ class ThirdGameViewController: UIViewController {
     
     let inputTextField: UITextField = {
        let textField = UITextField()
-        textField.backgroundColor = .white
+        textField.backgroundColor = .black
+        textField.textColor = .white
         textField.textAlignment = .center
         return textField
     }()
@@ -85,7 +86,7 @@ class ThirdGameViewController: UIViewController {
                     titleLabel.text = "Too small! Guess a number between \(minNumber) ~ \(maxNumber)"
                 }else if inputNumber! == answer{
                     // Bingo! right answer
-                    titleLabel.text = "You are right, Press [Guess] to play again!"
+                    titleLabel.text = "You are right, Press [Go] to play again!"
                     isOver = true
                     backgroundImageView.image = UIImage(named: "Finish")
                 }else{

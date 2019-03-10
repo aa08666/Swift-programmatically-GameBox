@@ -65,6 +65,7 @@ class SecondGameViewController: UIViewController {
         btnOne.tintColor = .black
         btnOne.setTitle("誰是周董？", for: .normal)
         btnOne.setTitleColor(.black, for: .normal)
+         btnOne.addTarget(self, action: #selector(alertButton(sendr:)), for: .touchUpInside)
         return btnOne
     }()
    
@@ -74,6 +75,7 @@ class SecondGameViewController: UIViewController {
         btnTwo.tintColor = .black
         btnTwo.setTitle("誰是周董？", for: .normal)
         btnTwo.setTitleColor(.black, for: .normal)
+        btnTwo.addTarget(self, action: #selector(alertButton(sendr:)), for: .touchUpInside)
         return btnTwo
     }()
     
@@ -91,8 +93,17 @@ class SecondGameViewController: UIViewController {
         btnFour.tintColor = .black
         btnFour.setTitle("誰是周董？", for: .normal)
         btnFour.setTitleColor(.black, for: .normal)
+        btnFour.addTarget(self, action: #selector(alertButton(sendr:)), for: .touchUpInside)
         return btnFour
     }()
+    
+    @objc func alertButton(sendr: UIButton) {
+        let alertController = UIAlertController(title: "猜錯了喔!", message: "眼殘膩", preferredStyle: .alert)
+        let tryAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(tryAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     
     @objc func pushPage() {
         let vc = TwoSecondGameViewController()

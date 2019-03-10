@@ -15,7 +15,7 @@ class FirstGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.navigationBar.isHidden = true
         firstGameView = UIView()
         self.view.addSubview(firstGameView)
         firstGameView.translatesAutoresizingMaskIntoConstraints = false
@@ -66,8 +66,8 @@ class FirstGameViewController: UIViewController {
     // TODO: 拉霸邏輯判斷
     @objc func showLabaAnswer() {
         let answer = GKRandomSource.sharedRandom().nextInt(upperBound: 9) + 1
-        let answer2 = GKRandomSource.sharedRandom().nextInt(upperBound: 9) + 1
-        let answer3 = GKRandomSource.sharedRandom().nextInt(upperBound: 9) + 1
+        let answer2 = GKRandomSource.sharedRandom().nextInt(upperBound: answer) + 1
+        let answer3 = GKRandomSource.sharedRandom().nextInt(upperBound: answer2) + 1
         oneLabel.text = String(answer)
         twoLabel.text = String(answer2)
         threeLabel.text = String(answer3)
