@@ -10,6 +10,7 @@
 		9049E59622327B8300E56EB2 /* ThirdGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9049E59522327B8300E56EB2 /* ThirdGameViewController.swift */; };
 		9049E59A22327E0400E56EB2 /* TwoSecondGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9049E59922327E0400E56EB2 /* TwoSecondGameViewController.swift */; };
 		9049E5A12234EBF100E56EB2 /* ThreeSecondGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9049E5A02234EBF100E56EB2 /* ThreeSecondGameViewController.swift */; };
+		9049E5A3223649FD00E56EB2 /* SecondGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9049E5A2223649FC00E56EB2 /* SecondGameModel.swift */; };
 		906B503A2231113C005B4AD8 /* SecondGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906B50392231113C005B4AD8 /* SecondGameViewController.swift */; };
 		90A15C20222E460200C4B5FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A15C1F222E460200C4B5FA /* AppDelegate.swift */; };
 		90A15C22222E460200C4B5FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A15C21222E460200C4B5FA /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 		9049E59522327B8300E56EB2 /* ThirdGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdGameViewController.swift; sourceTree = "<group>"; };
 		9049E59922327E0400E56EB2 /* TwoSecondGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoSecondGameViewController.swift; sourceTree = "<group>"; };
 		9049E5A02234EBF100E56EB2 /* ThreeSecondGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeSecondGameViewController.swift; sourceTree = "<group>"; };
+		9049E5A2223649FC00E56EB2 /* SecondGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondGameModel.swift; sourceTree = "<group>"; };
 		906B50392231113C005B4AD8 /* SecondGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondGameViewController.swift; sourceTree = "<group>"; };
 		90A15C1C222E460200C4B5FA /* Game_Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game_Box.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A15C1F222E460200C4B5FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,14 @@
 			path = Game3;
 			sourceTree = "<group>";
 		};
+		9049E5A522364D2E00E56EB2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9049E5A2223649FC00E56EB2 /* SecondGameModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		90A15C13222E460200C4B5FA = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +112,7 @@
 				9049E59B22327E0D00E56EB2 /* Game1 */,
 				9049E59C22327E1800E56EB2 /* Game2 */,
 				9049E59F22328CB800E56EB2 /* Game3 */,
+				9049E5A522364D2E00E56EB2 /* Model */,
 			);
 			path = Game_Box;
 			sourceTree = "<group>";
@@ -181,6 +192,7 @@
 				90A15C38222F7A6B00C4B5FA /* FirstGameViewController.swift in Sources */,
 				90A15C34222E6A6400C4B5FA /* info.swift in Sources */,
 				90A15C22222E460200C4B5FA /* ViewController.swift in Sources */,
+				9049E5A3223649FD00E56EB2 /* SecondGameModel.swift in Sources */,
 				9049E59622327B8300E56EB2 /* ThirdGameViewController.swift in Sources */,
 				9049E5A12234EBF100E56EB2 /* ThreeSecondGameViewController.swift in Sources */,
 				906B503A2231113C005B4AD8 /* SecondGameViewController.swift in Sources */,

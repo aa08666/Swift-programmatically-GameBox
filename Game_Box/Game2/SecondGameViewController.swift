@@ -13,7 +13,6 @@
 //        button11.setTitle("誰是周董？", for: .normal)
 //        button11.setTitleColor(.black, for: .normal)
 //        return button11
-//
 //    }
 //     let newButton: UIButton = .makeGameButton(input: <#T##String#>)
 //}
@@ -23,81 +22,146 @@ import UIKit
 
 class SecondGameViewController: UIViewController {
     var secondGameView: UIView!
-
+    
+    var games: [SecondGameModel] = [SecondGameModel.init(question: "誰是周董", answer: "R3", options: ["R1", "R2", "R3", "R4"]),
+                                    SecondGameModel.init(question: "誰是胡瓜", answer: "L2", options: ["L1","L2","L3","L4"]),
+                                    SecondGameModel.init(question: "誰是董至成", answer: "A4", options: ["A1","A2","A3","A4"])
+    ]
+    
+    
+    var currentAnswer = String()
+    var currentQuestionNumber = Int()
+    let questionLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    let aButton: UIButton = {
+        let btn = UIButton()
+        
+        btn.tag = 2
+        return btn
+    }()
+    
+    let bButton: UIButton = {
+        let btn = UIButton()
+        btn.tag = 3
+        return btn
+    }()
+    
+    let cButton: UIButton = {
+        let btn = UIButton()
+        btn.tag = 4
+        return btn
+    }()
+    let dButton: UIButton = {
+        let btn = UIButton()
+        btn.tag = 5
+        return btn
+    }()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         secondGameView = UIView()
         self.view.addSubview(secondGameView)
         secondGameView.translatesAutoresizingMaskIntoConstraints = false
         secondGameView.backgroundColor = .white
         secondGameView.setAnchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
-        GameTwoSetupAutoLayout()
-    
+        
+        setupQuestionButton()
+        
     }
     
-    let imageViewOne: UIImageView = {
-        let imvOne = UIImageView()
-        imvOne.contentMode = .scaleAspectFill
-        return imvOne
-    }()
-
-    let imageViewTwo: UIImageView = {
-       let imvTwo = UIImageView()
-        imvTwo.contentMode = .scaleAspectFill
-        return imvTwo
-    }()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateQuestionButton(game: games[0])
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+    }
     
-    let imagViewThree: UIImageView = {
-       let imvThree = UIImageView()
-        imvThree.contentMode = .scaleAspectFill
-        return imvThree
-    }()
     
-    let imageViewFour: UIImageView = {
-        let imvFour = UIImageView()
-        imvFour.contentMode = .scaleAspectFill
-        return imvFour
-    }()
     
-    let buttonOne: UIButton = {
-       let btnOne = UIButton()
-        btnOne.tintColor = .black
-        btnOne.setTitle("誰是周董？", for: .normal)
-        btnOne.setTitleColor(.black, for: .normal)
-         btnOne.addTarget(self, action: #selector(alertButton(sendr:)), for: .touchUpInside)
-        return btnOne
-    }()
-   
+    //     TODO: 1.先讓資料 Shuffled 2.再用for in 產生題目圖片 3.把image刪掉，用 button 代替圖片即可
+    //有個 array 所以可以判斷 indexPath 的值
     
-    let buttonTwo: UIButton = {
-        let btnTwo = UIButton()
-        btnTwo.tintColor = .black
-        btnTwo.setTitle("誰是周董？", for: .normal)
-        btnTwo.setTitleColor(.black, for: .normal)
-        btnTwo.addTarget(self, action: #selector(alertButton(sendr:)), for: .touchUpInside)
-        return btnTwo
-    }()
+    func setupQuestionButton() {
+        
+        
+        secondGameView.addSubview(aButton)
+        secondGameView.addSubview(bButton)
+        secondGameView.addSubview(cButton)
+        secondGameView.addSubview(dButton)
+        aButton.translatesAutoresizingMaskIntoConstraints = false
+        bButton.translatesAutoresizingMaskIntoConstraints = false
+        cButton.translatesAutoresizingMaskIntoConstraints = false
+        dButton.translatesAutoresizingMaskIntoConstraints = false
+        aButton.setAnchor(top: secondGameView.topAnchor, left: secondGameView.leftAnchor, bottom: nil, right: nil, paddingTop: 100, paddingLeft: 100, paddingBottom: 0, paddingRight: 0, width: 100, height: 100)
+        bButton.setAnchor(top: aButton.bottomAnchor, left: secondGameView.leftAnchor, bottom: nil, right: nil, paddingTop: 50, paddingLeft: 100, paddingBottom: 0, paddingRight: 0, width: 100, height: 100)
+        cButton.setAnchor(top: bButton.bottomAnchor, left: secondGameView.leftAnchor, bottom: nil, right: nil, paddingTop: 50, paddingLeft: 100, paddingBottom: 0, paddingRight: 0, width: 100, height: 100)
+        dButton.setAnchor(top: cButton.bottomAnchor, left: secondGameView.leftAnchor, bottom: nil, right: nil, paddingTop: 50, paddingLeft: 100, paddingBottom: 0, paddingRight: 0, width: 100, height: 100)
+        aButton.addTarget(self, action: #selector(clickButton(sender:)), for: .touchUpInside)
+        bButton.addTarget(self, action: #selector(clickButton(sender:)), for: .touchUpInside)
+        cButton.addTarget(self, action: #selector(clickButton(sender:)), for: .touchUpInside)
+        dButton.addTarget(self, action: #selector(clickButton(sender:)), for: .touchUpInside)
+        
+    }
     
-    let buttonThree: UIButton = {
-        let btnThree = UIButton()
-        btnThree.tintColor = .black
-        btnThree.setTitle("誰是周董？", for: .normal)
-        btnThree.setTitleColor(.black, for: .normal)
-        btnThree.addTarget(self, action: #selector(pushPage), for: .touchUpInside)
-        return btnThree
-    }()
+    @objc func clickButton(sender: UIButton){
+        guard let image = sender.currentImage else { return }
+        judgeAnswer(image: image)
+    }
     
-    let buttonFour: UIButton = {
-        let btnFour = UIButton()
-        btnFour.tintColor = .black
-        btnFour.setTitle("誰是周董？", for: .normal)
-        btnFour.setTitleColor(.black, for: .normal)
-        btnFour.addTarget(self, action: #selector(alertButton(sendr:)), for: .touchUpInside)
-        return btnFour
-    }()
+    func updateQuestionButton(game: SecondGameModel){
+        self.currentAnswer = game.answer
+        let buttons: [UIButton] = [aButton, bButton, cButton, dButton]
+        let shuflledOptions = game.options.shuffled()
+        print(shuflledOptions)
+        var numberOfArray = 0
+        for button in buttons {
+            button.setTitleColor(.clear, for: .normal)
+            button.setTitle(shuflledOptions[numberOfArray], for: .normal)
+            button.setImage(UIImage(named: shuflledOptions[numberOfArray]), for: .normal)
+            numberOfArray += 1
+        }
+    }cd 
     
-    @objc func alertButton(sendr: UIButton) {
+    func judgeAnswer(image input: UIImage){
+        guard input == UIImage(named: self.currentAnswer) else {
+            alertButton()
+            return
+        }
+        self.currentQuestionNumber += 1
+        success()
+    }
+    
+    func success(){
+        if currentQuestionNumber < 3 {
+            updateQuestionButton(game: games[currentQuestionNumber])
+        } else {
+            currentQuestionNumber = 0
+            //next game
+            showAlert(title: "Game Over")
+        }
+    }
+    
+    func showAlert(title: String){
+        let ac = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        let aa = UIAlertAction(title: "ok", style: .default) { (_) in
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        ac.addAction(aa)
+        self.present(ac, animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    @objc func alertButton() {
         let alertController = UIAlertController(title: "猜錯了喔!", message: "眼殘膩", preferredStyle: .alert)
         let tryAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alertController.addAction(tryAction)
@@ -110,52 +174,7 @@ class SecondGameViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func GameTwoSetupAutoLayout() {
-        secondGameView.addSubview(imageViewOne)
-        secondGameView.addSubview(imageViewTwo)
-        secondGameView.addSubview(imagViewThree)
-        secondGameView.addSubview(imageViewFour)
-        secondGameView.addSubview(buttonOne)
-        secondGameView.addSubview(buttonTwo)
-        secondGameView.addSubview(buttonThree)
-        secondGameView.addSubview(buttonFour)
-        
-        imageViewOne.setAnchor(top: secondGameView.topAnchor, left: secondGameView.leftAnchor, bottom: nil, right: nil, paddingTop: 100, paddingLeft: 100, paddingBottom: 0, paddingRight: 0, width: 100, height: 75 )
-        imageViewOne.translatesAutoresizingMaskIntoConstraints = false
-
-        
-
-        imageViewTwo.setAnchor(top: imageViewOne.bottomAnchor, left: secondGameView.leftAnchor, bottom: nil, right: nil, paddingTop: 100, paddingLeft: 100, paddingBottom: 0, paddingRight: 0, width: 100, height: 100)
-        imageViewTwo.translatesAutoresizingMaskIntoConstraints = false
-
-        imagViewThree.setAnchor(top: imageViewTwo.bottomAnchor, left: secondGameView.leftAnchor, bottom: nil, right: nil, paddingTop: 80, paddingLeft: 100, paddingBottom: 0, paddingRight: 0, width: 100, height: 80)
-        imagViewThree.translatesAutoresizingMaskIntoConstraints = false
-
-        imageViewFour.setAnchor(top: imagViewThree.bottomAnchor, left: secondGameView.leftAnchor, bottom: nil, right: nil, paddingTop: 80, paddingLeft: 100, paddingBottom: 0, paddingRight: 0, width: 100, height: 80)
-        imageViewFour.translatesAutoresizingMaskIntoConstraints = false
-
-                buttonOne.setAnchor(top: secondGameView.topAnchor, left: imageViewOne.rightAnchor, bottom: nil, right: nil, paddingTop: 100, paddingLeft: 50, paddingBottom: 0, paddingRight: 0, width: 100, height: 100)
-                buttonOne.translatesAutoresizingMaskIntoConstraints = false
-        
-                buttonTwo.setAnchor(top: buttonOne.bottomAnchor, left: imageViewTwo.rightAnchor, bottom: nil, right: nil, paddingTop: 100, paddingLeft: 50, paddingBottom: 0, paddingRight: 0, width: 100, height: 100)
-                buttonTwo.translatesAutoresizingMaskIntoConstraints = false
-        
-                buttonThree.setAnchor(top: buttonTwo.bottomAnchor, left: imagViewThree.rightAnchor  , bottom: nil, right: nil, paddingTop: 50, paddingLeft: 50, paddingBottom: 0, paddingRight: 0, width: 100, height: 100)
-                buttonThree.translatesAutoresizingMaskIntoConstraints = false
-        
-                buttonFour.setAnchor(top: buttonThree.bottomAnchor, left: imageViewFour.rightAnchor, bottom: nil, right: nil, paddingTop: 50, paddingLeft: 50, paddingBottom: 0, paddingRight: 0, width: 100, height: 100)
-                buttonFour.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        
-        imageViewOne.image = UIImage(named: "R1")
-        imageViewTwo.image = UIImage(named: "R2")
-        imagViewThree.image = UIImage(named: "R3")
-        imageViewFour.image = UIImage(named: "R4")
-        
-        
-        
-    }
     
-
+    
+    
 }

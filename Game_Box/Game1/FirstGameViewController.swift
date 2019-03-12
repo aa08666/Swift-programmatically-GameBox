@@ -8,14 +8,14 @@
 
 import UIKit
 import GameKit
-
+//TODO: 你好
 class FirstGameViewController: UIViewController {
 
     var firstGameView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isHidden = true
+//        navigationController?.navigationBar.isHidden = true
         firstGameView = UIView()
         self.view.addSubview(firstGameView)
         firstGameView.translatesAutoresizingMaskIntoConstraints = false
