@@ -33,17 +33,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }()
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBar()
         setuptableView()
+        setNavigationBar(title: "GameBox")
+        
         
     }
     
-    func setNavigationBar() {
-        navigationItem.title = "GameBOX"
+    func setNavigationBar(title:String) {
+        navigationItem.title = title
+        
         navigationController?.navigationBar.barTintColor = UIColor(red: 0, green: 255, blue: 198, alpha: 1)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray,
                                                                    NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)]
@@ -60,7 +60,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         myTableView.setAnchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
     }
     
-   
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myGamePictureArray.count
     }
@@ -110,23 +110,27 @@ extension ViewController:GamePushNextPage {
         switch indexPath.row {
         case 0:
             game = FirstGameViewController()
+            setNavigationBar(title: "我是拉霸")
+            
         case 1:
             game = SecondGameViewController()
+            setNavigationBar(title: "你猜猜啊")
         case 2:
             game = ThirdGameViewController()
+            setNavigationBar(title: "終極密碼")
         default:
             break
         }
-
-     guard  let gameVC = game,
+        
+        guard  let gameVC = game,
             let vc = gameVC as? UIViewController else { return  }
         self.navigationController?.pushViewController(vc, animated: true)
         
         
     }
-  }
-    
-   
+}
+
+
 //FIXME: asd
 //TODO: 123123
 //MARK: 132
@@ -139,20 +143,20 @@ class customCell: UITableViewCell {
     
     var indexPath: IndexPath?
     
-    // 我的cellView
+   
     let cellView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.white
         view.setCellShadow()
         return view
     }()
-    // 我的圖片
+    
     let pictureImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
         return iv
     }()
-    // 我的標題
+    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Name"
@@ -160,7 +164,7 @@ class customCell: UITableViewCell {
         label.textColor = UIColor.darkGray
         return label
     }()
-    // 我的按鈕
+  
     let FirstGameEntryButton: UIButton = {
         let button = UIButton(type: UIButton.ButtonType.system)
         button.backgroundColor = .black
@@ -187,9 +191,9 @@ class customCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // 設定約束條件
+   
     func setup() {
-
+        
         backgroundColor = UIColor(r: 245, g: 245, b: 245)
         addSubview(cellView)
         cellView.addSubview(pictureImageView)

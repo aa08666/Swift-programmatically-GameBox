@@ -38,25 +38,32 @@ class SecondGameViewController: UIViewController {
     let aButton: UIButton = {
         let btn = UIButton()
         
-        btn.tag = 2
+//        btn.tag = 2
         return btn
     }()
     
     let bButton: UIButton = {
         let btn = UIButton()
-        btn.tag = 3
+
         return btn
     }()
     
     let cButton: UIButton = {
         let btn = UIButton()
-        btn.tag = 4
+
         return btn
     }()
     let dButton: UIButton = {
         let btn = UIButton()
-        btn.tag = 5
+
         return btn
+    }()
+    
+    let whoLable: UILabel = {
+        let wlabel = UILabel()
+        wlabel.text = "誰跟其他人不一樣？"
+        
+        return wlabel
     }()
     
     
@@ -83,8 +90,6 @@ class SecondGameViewController: UIViewController {
         
     }
     
-    
-    
     //     TODO: 1.先讓資料 Shuffled 2.再用for in 產生題目圖片 3.把image刪掉，用 button 代替圖片即可
     //有個 array 所以可以判斷 indexPath 的值
     
@@ -95,14 +100,17 @@ class SecondGameViewController: UIViewController {
         secondGameView.addSubview(bButton)
         secondGameView.addSubview(cButton)
         secondGameView.addSubview(dButton)
+        secondGameView.addSubview(whoLable)
         aButton.translatesAutoresizingMaskIntoConstraints = false
         bButton.translatesAutoresizingMaskIntoConstraints = false
         cButton.translatesAutoresizingMaskIntoConstraints = false
         dButton.translatesAutoresizingMaskIntoConstraints = false
+        whoLable.translatesAutoresizingMaskIntoConstraints = false
         aButton.setAnchor(top: secondGameView.topAnchor, left: secondGameView.leftAnchor, bottom: nil, right: nil, paddingTop: 100, paddingLeft: 100, paddingBottom: 0, paddingRight: 0, width: 100, height: 100)
         bButton.setAnchor(top: aButton.bottomAnchor, left: secondGameView.leftAnchor, bottom: nil, right: nil, paddingTop: 50, paddingLeft: 100, paddingBottom: 0, paddingRight: 0, width: 100, height: 100)
         cButton.setAnchor(top: bButton.bottomAnchor, left: secondGameView.leftAnchor, bottom: nil, right: nil, paddingTop: 50, paddingLeft: 100, paddingBottom: 0, paddingRight: 0, width: 100, height: 100)
         dButton.setAnchor(top: cButton.bottomAnchor, left: secondGameView.leftAnchor, bottom: nil, right: nil, paddingTop: 50, paddingLeft: 100, paddingBottom: 0, paddingRight: 0, width: 100, height: 100)
+        whoLable.setAnchor(top: secondGameView.topAnchor, left: aButton.rightAnchor, bottom: nil, right: nil, paddingTop: 100, paddingLeft: 25, paddingBottom: 0, paddingRight: 0, width: 175, height: 100)
         aButton.addTarget(self, action: #selector(clickButton(sender:)), for: .touchUpInside)
         bButton.addTarget(self, action: #selector(clickButton(sender:)), for: .touchUpInside)
         cButton.addTarget(self, action: #selector(clickButton(sender:)), for: .touchUpInside)
@@ -127,7 +135,7 @@ class SecondGameViewController: UIViewController {
             button.setImage(UIImage(named: shuflledOptions[numberOfArray]), for: .normal)
             numberOfArray += 1
         }
-    }cd 
+    }
     
     func judgeAnswer(image input: UIImage){
         guard input == UIImage(named: self.currentAnswer) else {
@@ -143,8 +151,8 @@ class SecondGameViewController: UIViewController {
             updateQuestionButton(game: games[currentQuestionNumber])
         } else {
             currentQuestionNumber = 0
-            //next game
-            showAlert(title: "Game Over")
+            
+            showAlert(title: "全都答對了，你很行")
         }
     }
     
@@ -159,22 +167,11 @@ class SecondGameViewController: UIViewController {
     }
     
     
-    
-    
     @objc func alertButton() {
         let alertController = UIAlertController(title: "猜錯了喔!", message: "眼殘膩", preferredStyle: .alert)
         let tryAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alertController.addAction(tryAction)
         self.present(alertController, animated: true, completion: nil)
     }
-    
-    
-    @objc func pushPage() {
-        let vc = TwoSecondGameViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    
-    
     
 }
